@@ -136,8 +136,7 @@ Blockly.Dart.finish = function(code) {
   if (code) {
     code = Blockly.Dart.prefixLines(code, Blockly.Dart.INDENT);
   }
-  code = 'main() {\n' + code + '}';
-
+  
   // Convert the definitions dictionary into a list.
   var imports = [];
   var definitions = [];
