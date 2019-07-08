@@ -238,7 +238,7 @@ Code.LANG = Code.getLang();
  * List of tab names.
  * @private
  */
-Code.TABS_ = ['blocks', 'javascript', 'php', 'python', 'dart', 'lua', 'xml'];
+Code.TABS_ = ['blocks', 'javascript', 'html', 'python', 'dart', 'xml'];
 
 Code.selected = 'blocks';
 
@@ -307,14 +307,38 @@ Code.renderContent = function() {
     Code.attemptCodeGeneration(Blockly.JavaScript, 'js');
   } else if (content.id == 'content_python') {
     Code.attemptCodeGeneration(Blockly.Python, 'py');
-  } else if (content.id == 'content_php') {
-    Code.attemptCodeGeneration(Blockly.PHP, 'php');
   } else if (content.id == 'content_dart') {
     Code.attemptCodeGeneration(Blockly.Dart, 'dart');
-  } else if (content.id == 'content_lua') {
-    Code.attemptCodeGeneration(Blockly.Lua, 'lua');
+  } else if (content.id == 'content_html') {
+    var content = document.getElementById('content_html');
+    
+
+    content.innerHTML = '<iframe src="http://localhost:3000/sample-flutter-project/build/" width=600 height=600 onerror="alert(\'URL invalid !!\');" />';
   }
 };
+
+/** 
+ * Push the current dart code into the main.dart file in the same project.
+ * Those changes will get picked up by webdev serve
+ * Warning: It may take a while.
+ */
+Code.runDart = function() {
+
+  var content = document.querySelector("#content_dart").textContent;
+
+  var url = 'http://localhost:3000/webdev'
+  fetch(url, {
+    method: 'POST',
+    credentials: 'same-origin',
+    body: content
+  });
+
+  //alert("Not implemented.");
+}
+
+Code.exportProject = function() {
+  alert("Not implemented.");
+}
 
 /**
  * Attempt to generate the code and display it in the UI, pretty printed.
@@ -440,7 +464,8 @@ Code.init = function() {
 
   Code.bindClick('trashButton',
       function() {Code.discard(); Code.renderContent();});
-  Code.bindClick('runButton', Code.runJS);
+  Code.bindClick('runButton', Code.runDart);
+  Code.bindClick('downloadButton', Code.exportProject);
   // Disable the link button if page isn't backed by App Engine storage.
   var linkButton = document.getElementById('linkButton');
   if ('BlocklyStorage' in window) {

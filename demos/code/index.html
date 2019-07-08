@@ -5,14 +5,19 @@
   <meta name="google" value="notranslate">
   <title>Blockly Demo:</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
   <script src="/storage.js"></script>
+
   <script src="../../blockly_compressed.js"></script>
   <script src="../../blocks_compressed.js"></script>
   <script src="../../javascript_compressed.js"></script>
   <script src="../../python_compressed.js"></script>
   <script src="../../php_compressed.js"></script>
-  <script src="../../lua_compressed.js"></script>
   <script src="../../dart_compressed.js"></script>
+  <script src="flutter_scaffolding.js"></script>
+  <script src="flutter_block.js"></script>
+  <script src="flutter_generator.js"></script>
   <script src="code.js"></script>
 </head>
 <body>
@@ -38,22 +43,29 @@
             <td class="tabmin">&nbsp;</td>
             <td id="tab_python" class="taboff">Python</td>
             <td class="tabmin">&nbsp;</td>
-            <td id="tab_php" class="taboff">PHP</td>
-            <td class="tabmin">&nbsp;</td>
-            <td id="tab_lua" class="taboff">Lua</td>
+            <td id="tab_html" class="taboff">HTML</td>
             <td class="tabmin">&nbsp;</td>
             <td id="tab_dart" class="taboff">Dart</td>
             <td class="tabmin">&nbsp;</td>
             <td id="tab_xml" class="taboff">XML</td>
             <td class="tabmax">
               <button id="trashButton" class="notext" title="...">
-                <img src='../../media/1x1.gif' class="trash icon21">
+                <i class="material-icons">
+                  delete
+                  </i>
               </button>
               <button id="linkButton" class="notext" title="...">
                 <img src='../../media/1x1.gif' class="link icon21">
               </button>
               <button id="runButton" class="notext primary" title="...">
-                <img src='../../media/1x1.gif' class="run icon21">
+                <i class="material-icons">
+                  play_arrow
+                  </i>
+              </button>
+              <button id="downloadButton" class="notext" title="...">
+                <i class="material-icons">
+                  cloud_download
+                  </i>
               </button>
             </td>
           </tr>
@@ -68,8 +80,7 @@
   <div id="content_blocks" class="content"></div>
   <pre id="content_javascript" class="content"></pre>
   <pre id="content_python" class="content"></pre>
-  <pre id="content_php" class="content"></pre>
-  <pre id="content_lua" class="content"></pre>
+  <pre id="content_html" class="content"></pre>
   <pre id="content_dart" class="content"></pre>
   <textarea id="content_xml" class="content" wrap="off"></textarea>
 
@@ -382,6 +393,28 @@
     <sep></sep>
     <category name="%{BKY_CATVARIABLES}" colour="%{BKY_VARIABLES_HUE}" custom="VARIABLE"></category>
     <category name="%{BKY_CATFUNCTIONS}" colour="%{BKY_PROCEDURES_HUE}" custom="PROCEDURE"></category>
+    <category name="Flutter">
+      <block type="flutter_stateless_widget"></block>
+      <block type="flutter_stateful_widget"></block>
+      <block type="flutter_create_instance"></block>
+      <block type="flutter_set_state_call"></block>
+      <block type="flutter_raw_input"></block>
+      <block type="flutter_raw_statement"></block>
+      <block type="flutter_container"></block>
+      <block type="flutter_text"></block>
+      <block type="runapp"></block>
+      <block type="app"></block>
+      <block type="scaffold"></block>
+      <block type="appBar"></block>
+      <block type="flutter_row"></block>
+      <block type="flutter_column"></block>
+      <block type="flutter_listview"></block>
+      <block type="flutter_icon"></block>
+      <block type="flutter_icons"></block>
+      <block type="flutter_placeholder"></block>
+      <block type="flutter_raised_button"></block>
+      <block type="flutter_fab"></block>
+    </category>
   </xml>
 
 </body>
