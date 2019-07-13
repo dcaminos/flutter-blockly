@@ -10,6 +10,7 @@ Blockly.Dart['flutter_text'] = function(block) {
 
 Blockly.Dart['runapp'] = function(block) {
   var value_name = Blockly.Dart.valueToCode(block, 'NAME', Blockly.Dart.ORDER_NONE);
+  console.log(block);
   console.log(Blockly.Dart.valueToCode(block, 'NAME', Blockly.Dart.ORDER_NONE));
   // TODO: Assemble Dart into code variable.
   var code = 'runApp(' + value_name+');\n';
@@ -20,7 +21,7 @@ Blockly.Dart['app'] = function(block) {
   var dropdown_type = block.getFieldValue('type');
   var value_home = Blockly.Dart.valueToCode(block, 'home', Blockly.Dart.ORDER_NONE);
   var value_title = Blockly.Dart.valueToCode(block, 'title', Blockly.Dart.ORDER_ATOMIC);
-  // TODO: Assemble Dart into code variable.
+  console.log(block);
   if (dropdown_type == "MATERIAL") {
     code =  'MaterialApp(\n';
     if (value_title != "")
@@ -158,9 +159,13 @@ Blockly.Dart['flutter_placeholder'] = function(block) {
 
 Blockly.Dart['flutter_raised_button'] = function(block) {
   var value_child = Blockly.Dart.valueToCode(block, 'child', Blockly.JavaScript.ORDER_ATOMIC);
-  // TODO: Assemble Dart into code variable.
+  var statement_onPressed = Blockly.Dart.statementToCode(block, 'onPressed');
+
   var code = 'RaisedButton(\n';
-  code += "\t onPressed: (){},\n";
+  if (statement_onPressed != "")
+    code += "\t onPressed: (){\n"+statement_onPressed+"},\n";
+  else code += "\t onPressed: null,\n";
+  
   code += "\t child: "+value_child+"\n";
   code += ")";
   return [code, Blockly.Dart.ORDER_NONE];
@@ -169,14 +174,15 @@ Blockly.Dart['flutter_raised_button'] = function(block) {
 Blockly.Dart['flutter_fab'] = function(block) {
   var value_child = Blockly.Dart.valueToCode(block, 'child', Blockly.JavaScript.ORDER_ATOMIC);
   var statement_onPressed = Blockly.Dart.statementToCode(block, 'onPressed');
-  var trimmed_func_call = statement_onPressed;
 
   var code = 'FloatingActionButton(\n';
   if (statement_onPressed != "")
-    code += "\t onPressed: (){\n"+trimmed_func_call+"},\n";
-  else code += "\t onPressed: (){},\n";
-
-  code += "\t child: "+value_child+"\n";
+    code += "\t onPressed: (){\n"+statement_onPressed+"},\n";
+  else code += "\t onPressed: null,\n";
+  
+  if (value_child != "")
+    code += "\t child: "+value_child+"\n";
+  
   code += ")";
   return [code, Blockly.Dart.ORDER_NONE];
 };
@@ -252,7 +258,7 @@ Blockly.Dart['flutter_container'] = function(block) {
     code += "\t child: "+value_child+"\n";
   code += ")";
 
-  return code;
+  return [code, Blockly.Dart.ORDER_NONE];
 };
 
 Blockly.Dart['flutter_set_state_call'] = function(block) {

@@ -4,9 +4,9 @@ Blockly.Blocks['flutter_text'] = {
         .setCheck("String")
         .appendField("Text");
     this.setColour(230);
-    this.setOutput(true, null);
+    this.setOutput(true, ["Widget", "Text"]);
  this.setTooltip("Text Widget");
- this.setHelpUrl("");
+ this.setHelpUrl("https://api.flutter.dev/flutter/widgets/Text-class.html");
   }
 };
 
@@ -17,11 +17,11 @@ Blockly.Blocks['flutter_row'] = {
           .appendField("Row");
     this.appendValueInput("children")
         .appendField("children")
-        .setCheck(null);
-    this.setOutput(true, null);
+        .setCheck(["Array", "Widget"]);
+    this.setOutput(true, ["Widget","Row"]);
     this.setColour(230);
  this.setTooltip("");
- this.setHelpUrl("");
+ this.setHelpUrl("https://api.flutter.dev/flutter/widgets/Row-class.html");
   }
 };
 
@@ -31,11 +31,11 @@ Blockly.Blocks['flutter_column'] = {
           .appendField("Column");
     this.appendValueInput("children")
         .appendField("children")
-        .setCheck(null);
-    this.setOutput(true, null);
+        .setCheck(["Array","Widget"]);
+    this.setOutput(true, ["Widget", "Column"]);
     this.setColour(230);
  this.setTooltip("");
- this.setHelpUrl("");
+ this.setHelpUrl("https://api.flutter.dev/flutter/widgets/Column-class.html");
   }
 };
 
@@ -45,11 +45,11 @@ Blockly.Blocks['flutter_listview'] = {
           .appendField("ListView");
     this.appendValueInput("children")
         .appendField("children")
-        .setCheck(null);
-    this.setOutput(true, null);
+        .setCheck(["Array","Widget"]);
+    this.setOutput(true, ["Widget", "ListView"]);
     this.setColour(230);
  this.setTooltip("");
- this.setHelpUrl("");
+ this.setHelpUrl("https://api.flutter.dev/flutter/widgets/ListView-class.html");
   }
 };
 
@@ -57,18 +57,18 @@ Blockly.Blocks['flutter_icon'] = {
   init: function() {
 
     this.appendValueInput("icon")
-        .setCheck(null)
+        .setCheck("IconData")
         .appendField("icon");
     this.appendValueInput("color")
-        .setCheck(null)
+        .setCheck("Color")
         .appendField("color");
     this.appendValueInput("size")
         .setCheck("Number")
         .appendField("size");
     this.setColour(230);
-    this.setOutput(true, null);
+    this.setOutput(true, ["Widget", "Icon"]);
  this.setTooltip("");
- this.setHelpUrl("");
+ this.setHelpUrl("https://api.flutter.dev/flutter/widgets/Icon-class.html");
   }
 };
 
@@ -77,10 +77,10 @@ Blockly.Blocks['flutter_icons'] = {
     this.appendDummyInput()
         .appendField("Icons.")
         .appendField(new Blockly.FieldTextInput("android"), "constant");
-    this.setOutput(true, null);
+    this.setOutput(true, "IconData");
     this.setColour(230);
  this.setTooltip("");
- this.setHelpUrl("");
+ this.setHelpUrl("https://api.flutter.dev/flutter/widgets/IconData-class.html");
   }
 };
 
@@ -100,7 +100,7 @@ Blockly.Blocks['flutter_placeholder'] = {
     this.appendDummyInput()
         .appendField("fallbackHeight")
         .appendField(new Blockly.FieldNumber(400), "fallbackHeight");
-    this.setOutput(true, null);
+    this.setOutput(true, ["Widget", "Placeholder"]);
     this.setColour(230);
  this.setTooltip("A widget that draws a box that represents where other widgets will one day be added.");
  this.setHelpUrl("https://api.flutter.dev/flutter/widgets/Placeholder-class.html");
@@ -111,13 +111,16 @@ Blockly.Blocks['flutter_raised_button'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("RaisedButton");
+    this.appendStatementInput("onPressed")
+        .setCheck("Function")
+        .appendField("onPressed");
     this.appendValueInput("child")
-        .setCheck(null)
+        .setCheck("Widget")
         .appendField("child");
-    this.setOutput(true, null);
+    this.setOutput(true, ["Widget", "RaisedButton"]);
     this.setColour(230);
  this.setTooltip("");
- this.setHelpUrl("");
+ this.setHelpUrl("https://api.flutter.dev/flutter/material/RaisedButton-class.html");
   }
 };
 
@@ -129,12 +132,12 @@ Blockly.Blocks['flutter_fab'] = {
         .setCheck("Function")
         .appendField("onPressed");
     this.appendValueInput("child")
-        .setCheck(null)
+        .setCheck("Widget")
         .appendField("child");
-    this.setOutput(true, null);
+    this.setOutput(true, ["Widget", "FloatingActionButton"]);
     this.setColour(230);
  this.setTooltip("");
- this.setHelpUrl("");
+ this.setHelpUrl("https://api.flutter.dev/flutter/material/FloatingActionButton-class.html");
   }
 };
 
@@ -144,7 +147,7 @@ Blockly.Blocks['flutter_stateless_widget'] = {
         .appendField(new Blockly.FieldTextInput("MyWidget"), "classname")
         .appendField("StatelessWidget");
     this.appendValueInput("content")
-        .setCheck(null)
+        .setCheck("Widget")
         .appendField("build(BuildContext context)");
     this.setColour(120);
  this.setTooltip("");
@@ -161,7 +164,7 @@ Blockly.Blocks['flutter_stateful_widget'] = {
         .setCheck(null)
         .appendField("vars");
     this.appendValueInput("content")
-        .setCheck(null)
+        .setCheck("Widget")
         .appendField("build(BuildContext context)");
     this.setColour(250);
  this.setTooltip("");
@@ -174,7 +177,7 @@ Blockly.Blocks['flutter_create_instance'] = {
     this.appendDummyInput()
         .appendField("Create instance of")
         .appendField(new Blockly.FieldTextInput("MyWidget"), "className");
-    this.setOutput(true, null);
+    this.setOutput(true, "Widget");
     this.setColour(230);
  this.setTooltip("");
  this.setHelpUrl("");
@@ -192,12 +195,12 @@ Blockly.Blocks['flutter_container'] = {
         .setCheck("Number")
         .appendField("height");
     this.appendValueInput("color")
-        .setCheck(null)
+        .setCheck("Colour")
         .appendField("color");
     this.appendValueInput("child")
-        .setCheck(null)
+        .setCheck("Widget")
         .appendField("child");
-    this.setOutput(true, null);
+    this.setOutput(true, ["Widget", "Container"]);
     this.setColour(230);
  this.setTooltip("");
  this.setHelpUrl("https://api.flutter.dev/flutter/widgets/Container/Container.html");

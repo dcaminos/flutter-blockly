@@ -1,12 +1,12 @@
 Blockly.Blocks['runapp'] = {
     init: function() {
       this.appendValueInput("NAME")
-          .setCheck(null)
+          .setCheck("Widget")
           .appendField("RunApp");
       this.setColour(230);
       this.setPreviousStatement(true, null);
    this.setTooltip("");
-   this.setHelpUrl("");
+   this.setHelpUrl("https://api.flutter.dev/flutter/widgets/runApp.html");
     }
   };
 
@@ -23,10 +23,10 @@ Blockly.Blocks['runapp'] = {
           .setCheck(null)
           .setAlign(Blockly.ALIGN_RIGHT)
           .appendField("home");
-      this.setOutput(true, null);
+      this.setOutput(true, ["Widget", "MaterialApp"]);
       this.setColour(230);
    this.setTooltip("");
-   this.setHelpUrl("");
+   this.setHelpUrl("https://api.flutter.dev/flutter/material/MaterialApp-class.html");
     }
   };
 
@@ -37,21 +37,21 @@ Blockly.Blocks['runapp'] = {
  //         .appendField(new Blockly.FieldImage("https://www.gstatic.com/codesite/ph/images/star_on.gif", 15, 15, "*"))
           .appendField("Scaffold");
       this.appendValueInput("appBar")
-          .setCheck("appBar")
+          .setCheck("AppBar")
           .setAlign(Blockly.ALIGN_RIGHT)
           .appendField("appBar");
       this.appendValueInput("body")
-          .setCheck(null)
+          .setCheck("Widget")
           .setAlign(Blockly.ALIGN_RIGHT)
           .appendField("body");
       this.appendValueInput("fab")
-          .setCheck(null)
+          .setCheck("FloatingActionButton")
           .setAlign(Blockly.ALIGN_RIGHT)
           .appendField("floatingActionButton");
-      this.setOutput(true, null);
+      this.setOutput(true, ["Widget", "Scaffold"]);
       this.setColour(165);
    this.setTooltip("");
-   this.setHelpUrl("");
+   this.setHelpUrl("https://api.flutter.dev/flutter/material/Scaffold-class.html");
     }
   };
 
@@ -62,11 +62,11 @@ Blockly.Blocks['runapp'] = {
       this.appendValueInput("title")
           .setAlign(Blockly.ALIGN_RIGHT)
           .appendField("title").setCheck("flutter_text");
-      this.setOutput(true, null);
+      this.setOutput(true, ["Widget", "AppBar"]);
       this.setColour(165);
       
    this.setTooltip("");
-   this.setHelpUrl("");
+   this.setHelpUrl("https://api.flutter.dev/flutter/material/AppBar-class.html");
     }
 };
 
@@ -81,7 +81,7 @@ Blockly.Blocks['flutter_set_state_call'] = {
       this.setNextStatement(true, null);
       this.setColour(230);
    this.setTooltip("");
-   this.setHelpUrl("");
+   this.setHelpUrl("https://api.flutter.dev/flutter/widgets/State/setState.html");
     }
 };
 
