@@ -319,14 +319,14 @@ Code.renderContent = function() {
 
 /** 
  * Push the current dart code into the main.dart file in the same project.
- * Those changes will get picked up by webdev serve
+ * Those changes will get picked up by webdev serve or flutter run
  * Warning: It may take a while.
  */
 Code.runDart = function() {
 
   var content = document.querySelector("#content_dart").textContent;
 
-  var url = 'http://localhost:3000/webdev'
+  var url = 'http://localhost:3000/savetofile'
   fetch(url, {
     method: 'POST',
     credentials: 'same-origin',
